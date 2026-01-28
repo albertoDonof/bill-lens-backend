@@ -14,12 +14,25 @@ SCOPES = [
     'https://www.googleapis.com/auth/drive'
 ]
 
+import json
+
 def get_gspread_client():
-    cred_path = os.environ.get('SERVICE_ACCOUNT_KEY_PATH') or os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
-    if not os.path.exists(cred_path):
-        raise Exception("serviceAccountKey.json not found")
+    key_path_or_content = os.environ.get('SERVICE_ACCOUNT_KEY_PATH')
+    credentials = None
     
-    credentials = ServiceAccountCredentials.from_service_account_file(cred_path, scopes=SCOPES)
+    if key_path_or_content and key_path_or_content.strip().startswith('{'):
+        # Load from JSON content in env var
+        print("DEBUG: Export loading credentials from JSON Env Var")
+        info = json.loads(key_path_or_content)
+        credentials = ServiceAccountCredentials.from_service_account_info(info, scopes=SCOPES)
+    else:
+        # Load from file path
+        cred_path = key_path_or_content or os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
+        print(f"DEBUG: Export loading credentials from file: {cred_path}")
+        if not os.path.exists(cred_path):
+             raise Exception(f"serviceAccountKey.json not found at {cred_path}")
+        credentials = ServiceAccountCredentials.from_service_account_file(cred_path, scopes=SCOPES)
+    
     client = gspread.authorize(credentials)
     return client
 
