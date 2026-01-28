@@ -1,0 +1,29 @@
+# Bill Lens Backend Task List
+
+- [x] Project Setup <!-- id: 0 -->
+    - [x] Create `task.md` <!-- id: 1 -->
+    - [x] Create `implementation_plan.md` <!-- id: 2 -->
+    - [x] Initialize project structure (folders, empty files) <!-- id: 3 -->
+- [x] Docker Configuration <!-- id: 4 -->
+    - [x] Create `Dockerfile` <!-- id: 5 -->
+    - [x] Create `docker-compose.yml` (Flask + PostgreSQL) <!-- id: 6 -->
+- [x] Application Implementation <!-- id: 7 -->
+    - [x] Define Database Models (SQLAlchemy) <!-- id: 8 -->
+    - [x] Implement CRUD Routes (Create, Read All, Read One, Delete) <!-- id: 9 -->
+    - [x] Implement Complex Routes (Monthly expenses, Category sum) <!-- id: 10 -->
+    - [x] Configure Database Connection <!-- id: 11 -->
+- [x] Verification <!-- id: 12 -->
+    - [x] Verify Docker build and run <!-- id: 13 -->
+    - [x] Test API endpoints <!-- id: 14 -->
+- [x] Database Enhancements <!-- id: 15 -->
+    - [x] Auto-create tables on startup <!-- id: 16 -->
+    - [x] Create seed data script <!-- id: 17 -->
+- [x] Tooling <!-- id: 18 -->
+    - [x] Add pgAdmin to docker-compose <!-- id: 19 -->
+- [x] Offline-First Refactoring <!-- id: 20 -->
+    - [x] Update Model (UUID, is_deleted, last_updated) <!-- id: 21 -->
+    - [x] Update Routes (Sync logic, Soft Delete) <!-- id: 22 -->
+    - [x] Update Seed Script <!-- id: 23 -->
+    - [x] Update Test Script <!-- id: 24 -->
+- [x] Documentation <!-- id: 25 -->
+    - [x] Create `api_documentation.md` <!-- id: 26 -->
