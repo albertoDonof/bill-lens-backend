@@ -6,7 +6,7 @@ from functools import wraps
 
 # Initialize Firebase Admin SDK
 # Expects serviceAccountKey.json in the same directory
-cred_path = os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
+cred_path = os.environ.get('SERVICE_ACCOUNT_KEY_PATH') or os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
 
 if os.path.exists(cred_path):
     cred = credentials.Certificate(cred_path)

@@ -15,7 +15,7 @@ SCOPES = [
 ]
 
 def get_gspread_client():
-    cred_path = os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
+    cred_path = os.environ.get('SERVICE_ACCOUNT_KEY_PATH') or os.path.join(os.path.dirname(__file__), 'serviceAccountKey.json')
     if not os.path.exists(cred_path):
         raise Exception("serviceAccountKey.json not found")
     
